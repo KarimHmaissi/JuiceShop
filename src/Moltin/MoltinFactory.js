@@ -1,0 +1,1 @@
+export default new Moltin({publicId: "umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"});
