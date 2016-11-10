@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import {Provider} from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router';
+
 import configureStore from './store/configure-store';
 import initialState from './store/InitialState';
-
 import moltin from './Moltin/MoltinFactory';
+
+import ProductContainer from './containers/ProductContainer';
+import HomeContainer from './containers/HomeContainer';
 
 //Init Moltin
 if(moltin) {
@@ -29,7 +33,13 @@ if(moltin) {
 
 		ReactDOM.render(
 		  <Provider store={store}>
-		    <App />
+		  	<Router history={browserHistory}>
+		  		<Route component={App}>
+		  			<Route path="/"  component={HomeContainer}/>
+		  			<Route path="/products"  component={ProductContainer}/>
+		  		</Route>
+
+		  	</Router>
 		  </Provider>,
 		  document.getElementById('root')
 		);

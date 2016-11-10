@@ -10,8 +10,6 @@ export const loadProductsRequest = () => {
 }
 
 export const loadProductsRecieved = (response) => {
-	console.log('loadProductsRecieved :Receieved products');
-	console.log(response);
 	return {
 		type: types.LOAD_PRODUCTS_RECIEVED,
 		payload: response
@@ -19,9 +17,6 @@ export const loadProductsRecieved = (response) => {
 }
 
 export const loadProductsFetch = () => {
-	console.log('loadProductsFetch :ABOUT TO FETCH PRODUCTS');
-	console.log(moltin);
-
 	const errorHandler = (error) => {
 		console.error(error);
 	}
