@@ -9,8 +9,10 @@ import configureStore from './store/configure-store';
 import initialState from './store/InitialState';
 import moltin from './Moltin/MoltinFactory';
 
-import ProductContainer from './containers/ProductContainer';
-import HomeContainer from './containers/HomeContainer';
+import ProductPage from './pages/ProductPage';
+import ProductListPage from './pages/ProductListPage';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 //Init Moltin
 if(moltin) {
@@ -35,8 +37,10 @@ if(moltin) {
 		  <Provider store={store}>
 		  	<Router history={browserHistory}>
 		  		<Route component={App}>
-		  			<Route path="/"  component={HomeContainer}/>
-		  			<Route path="/products"  component={ProductContainer}/>
+		  			<Route path="/"  component={HomePage}/>
+		  			<Route path="/products"  component={ProductListPage}/>
+		  			<Route path="/product/:productId"  component={ProductPage}/>
+		  			<Route path="/login"  component={LoginPage}/>
 		  		</Route>
 
 		  	</Router>

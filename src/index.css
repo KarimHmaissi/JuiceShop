@@ -1,7 +1,37 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  margin-left: 60px;
-  margin-right: 60px;
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	color: #2d2b2d;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+a {
+	text-decoration: none;
+	color: #2d2b2d;
+}
+h1 {
+
+}
+
+h2 {
+	font-size: 32px;
+	font-weight: 100;
+}
+
+footer {
+	padding-bottom: 120px;
+}
+
+
+.title {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: 120px;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin: 0;
+	letter-spacing: 1.1;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }

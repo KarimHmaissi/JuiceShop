@@ -17,9 +17,24 @@ const products = (state = {}, action) => {
 	}
 }
 
+const product = (state = {}, action) => {
+	switch (action.type) {
+	  case types.LOAD_PRODUCT_REQUEST:
+	    return state
+	  case types.LOAD_PRODUCT_RECIEVED: 
+	  	return Object.assign({}, state, {product: action.payload});
+	  case types.RESET_PRODUCT:
+	  	return Object.assign({}, state, {product: null});
+	  default:
+	    return state;
+	}
+}
+
+
 const rootReducer = combineReducers({
 	moltin,
-	products
+	products,
+	product
 });
 
 export default rootReducer;

@@ -8,5 +8,6 @@ export default {
 			tokenType: null,
 		}
 	},
-	products: null
+	products: null,
+	product: null,
 };
