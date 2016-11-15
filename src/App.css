@@ -36,7 +36,9 @@
 
 
 
-
+.loading {
+  min-height: 900px;
+}
 
 
 
@@ -84,6 +86,7 @@ header {
 .logo h1 {
   margin: 0;
   font-weight: 100;
+  font-size: 36px;
 }
 
 .nav-list {

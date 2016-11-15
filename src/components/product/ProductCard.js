@@ -7,7 +7,6 @@ import Price from './Price';
 export default class ProductCard extends Component {
 
 	render() {
-		console.log(this.props);
 		if(!this.props.product) {
 			return (<div>Loading...</div>);
 		}

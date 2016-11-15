@@ -1,7 +1,9 @@
 import React, {PropTypes, Component} from 'react';
 import LoginContainer from '../containers/LoginContainer';
 
-class LoginPage extends Component {
+import ProtoPage from './index.js';
+
+class LoginPage extends ProtoPage {
 
 	render() {
 		return (

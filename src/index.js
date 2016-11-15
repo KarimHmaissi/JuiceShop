@@ -13,6 +13,8 @@ import ProductPage from './pages/ProductPage';
 import ProductListPage from './pages/ProductListPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import AccountPage from './pages/AccountPage';
 
 //Init Moltin
 if(moltin) {
@@ -41,6 +43,8 @@ if(moltin) {
 		  			<Route path="/products"  component={ProductListPage}/>
 		  			<Route path="/product/:productId"  component={ProductPage}/>
 		  			<Route path="/login"  component={LoginPage}/>
+		  			<Route path="/register"  component={RegisterPage}/>
+		  			<Route path="/account"  component={AccountPage}/>
 		  		</Route>
 
 		  	</Router>

@@ -1,4 +1,5 @@
 export default {
+	user: {user: null},
 	moltin: {
 		isAuth: false,
 		auth: {

@@ -9,7 +9,7 @@ export default class ProductDetails extends Component {
 	render() {
 		console.log(this.props);
 		if(!this.props.product) {
-			return (<div>Loading...</div>);
+			return (<div className="loading">Loading...</div>);
 		}
 		const product = this.props.product;
 

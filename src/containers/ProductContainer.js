@@ -21,7 +21,7 @@ class ProductContainer extends Component {
 		console.log('ProductCONTAINER render - ', this.props);
 		if(!this.props.product) {
 			return (
-				<div>Loading product</div>
+				<div className="loading">Loading product</div>
 			)
 		}
 		return (

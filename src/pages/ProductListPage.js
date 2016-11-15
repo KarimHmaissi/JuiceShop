@@ -5,7 +5,9 @@ import FAQ from '../components/common/FAQ';
 import Returns from '../components/common/Returns';
 import Postage from '../components/common/Postage';
 
-class ProductListPage extends Component {
+import ProtoPage from './index.js';
+
+class ProductListPage extends ProtoPage {
 
 	render() {
 		return (

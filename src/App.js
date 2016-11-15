@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './App.css';
 import Nav from './components/common/Nav';
 import Footer from './components/common/Footer';
 
+import * as userActions from './actions/user-actions';
+
 class App extends Component {
+
+  componentWillMount() {
+    this.props.actions.loginUserFetch();
+  }
+
   render() {
     return (
       <div className="App">
         	<div className="container">
-        	<Nav />
+        	<Nav user={this.props.user} logout={this.props.actions.logout}/>
         	
        			{this.props.children} 
        		</div>
@@ -19,4 +27,16 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state, props) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(userActions, dispatch)
+  } 
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

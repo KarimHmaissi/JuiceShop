@@ -2,7 +2,9 @@ import React, {PropTypes, Component} from 'react';
 import Intro from '../components/common/Intro';
 import ProductListContainer from '../containers/ProductListContainer';
 
-class HomePage extends Component {
+import ProtoPage from './index.js';
+
+class HomePage extends ProtoPage {
 
 	render() {
 		return (

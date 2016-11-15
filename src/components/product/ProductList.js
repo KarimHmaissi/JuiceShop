@@ -8,7 +8,7 @@ export default class ProductList extends Component {
 		console.log(this.props);
 
 		if(!this.props.products) {
-			return (<div>Products are still loading son!!</div>);
+			return (<div className="loading">Products are still loading son!!</div>);
 		}
 
 		return (
