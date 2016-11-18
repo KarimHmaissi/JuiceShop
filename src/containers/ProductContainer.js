@@ -3,22 +3,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as productActions from '../actions/product-actions';
+import * as cartActions from '../actions/cart-actions';
 import ProductDetails from '../components/product/ProductDetails';
 
 
 class ProductContainer extends Component {
 	componentWillMount() {
 		const productId = this.props.routeParams.productId
-		console.log('ProductContainer, ID: ', this.props);
-		this.props.actions.loadProductFetch(productId);
+		this.props.productActions.loadProductFetch(productId);
 	}
 
 	componentWillUnmount() {	
-		this.props.actions.resetProduct();
+		this.props.productActions.resetProduct();
 	}
 
 	render() {
-		console.log('ProductCONTAINER render - ', this.props);
 		if(!this.props.product) {
 			return (
 				<div className="loading">Loading product</div>
@@ -26,7 +25,7 @@ class ProductContainer extends Component {
 		}
 		return (
 			<div>
-				<ProductDetails product={this.props.product.product} />
+				<ProductDetails product={this.props.product.product} addToCart={this.props.cartActions.addProductFetch}/>
 				
 			</div>
 		);
@@ -41,7 +40,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		actions: bindActionCreators(productActions, dispatch) 
+		productActions: bindActionCreators(productActions, dispatch),
+		cartActions: bindActionCreators(cartActions, dispatch),
 	}
 }
 

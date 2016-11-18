@@ -6,9 +6,9 @@ import { browserHistory } from 'react-router';
 class AccountContainer extends Component {
 
 	componentWillMount() {
-		if(!this.props.user.user) {
-			browserHistory.push('/login');
-		} 
+		// if(!this.props.user.user) {
+		// 	browserHistory.push('/login');
+		// } 
 	}
 
 	render() {

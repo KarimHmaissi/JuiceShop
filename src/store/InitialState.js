@@ -1,5 +1,4 @@
 export default {
-	user: {user: null},
 	moltin: {
 		isAuth: false,
 		auth: {
@@ -9,6 +8,10 @@ export default {
 			tokenType: null,
 		}
 	},
-	products: null,
+	ui: {
+		sidebarOpen: false
+	},
+	products: [],
 	product: null,
+	cart: [],
 };

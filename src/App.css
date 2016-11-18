@@ -6,7 +6,7 @@
 .button {
   font-size: 12px;
   font-weight: 700;
-  background-color: #f0002f;
+  background-color: #24dbc2;
   color: #fff;
 
 
@@ -34,6 +34,10 @@
 
 
 
+.container {
+  margin-top: 120px;
+}
+
 
 
 .loading {
@@ -58,6 +62,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   letter-spacing: 1.1;
+  margin-top: 0;
 }
 
 .intro .intro__subtitle {
@@ -76,21 +81,38 @@
 header {
   padding-top: 10px;
   padding-bottom: 10px;
+
+  padding: 0 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 9999;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.07);
 }
 
 .logo {
   float: left;
   display: block;
+  cursor: pointer;
 }
 
 .logo h1 {
   margin: 0;
   font-weight: 100;
   font-size: 36px;
+  margin-top: 10px;
+}
+
+.logo h1 span {
+  font-weight: 900;
 }
 
 .nav-list {
-  text-align: left;
+  text-align: right;
   list-style: none;
   padding-left: 0;
   margin-left: 200px;
@@ -98,11 +120,11 @@ header {
 
 .nav-list > li {
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 45px;
 }
 
 .nav-list > li > a {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: #343433;
 }
@@ -144,12 +166,49 @@ header {
 
 
 .product--details .product__details {
+
 }
 
-.product .product__image {
-  max-width: 100%;
+.product__image {
+    
+}
+
+.product--card .product__image {
   display: block;
   height: auto;
+  height: 249px;
+  width: 100%;
+  transform: translateX(0);
+}
+
+.product__wrapper--relative {
+  position: relative;
+}
+
+.product__wrapper--absolute {
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  -webkit-transform: translateY(50%);
+  transform: translateY(-50%);
+  display: block;
+  width: 35%;
+}
+
+.product__image--fixed {
+  width: 50%;
+  position: absolute;
+  right: -100px;
+  top: 0;
+  z-index: -1;
+  padding: 60px;
+}
+
+.product__image {
+   width: 110%;
+  display: block;
+  height: auto;
+  transform: translateX(-18%);
 }
 
 .product .product__title {
@@ -162,29 +221,114 @@ header {
 .product-list .product__title {
   font-size: 16px;
   margin-top: 20px;
+  font-weight: 700;
 }
 
 .product__details .product__title {
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 70px;
-  line-height: 1.2;
-  margin-top: 0;
+  font-size: 102px;
+  line-height: 1;
+  margin-top: 10px;
 }
 
 .product .product__description {
-  font-size: 16px;
-  line-height: 1.4;
-  color: #71706c;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2d2b2d;
 }
 
-.product__details .product__price-wrapper {
+.product .product__top p {
+  display: inline-block;
+  margin-right: 60px;
+  font-weight: 400;
+  color: #24dbc2;
+  font-size: 14px;
+
+}
+
+.product .product__top p span {
+    font-weight: 700;
+    color: #2d2b2d;
+}
+
+.product .product__selectors {
+  width: 50%;
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.product .product__selectors > p {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.product .product__selector {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /*border: 3px solid #71706c;*/
+}
+
+.product .product__selector {
+  
+}
+
+.product .product__selector li {
+  
+  display: inline-block;
+  padding: 14px;
+  border: 3px solid #2d2b2d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.product .product__selector li:first-child {
+    border-right: 0;
+}
+
+.product .product__selector li:last-child {
+    border-left: 0;
+}
+
+.product .product__cta {
+   /*padding: 35px 30px;*/
+   /*border: 3px solid #2d2b2d;*/
+}
+
+.product .product__cta .button {
+  display: block;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 40px;
+}
+
+.product__cta__benefits {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.product .product__cta__benefit {
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.product .product__cta__benefit span {
+  color: #24dbc2;
+}
+
+
+/*.product__details .product__price-wrapper {
   float: left;
   margin-right: 40px;
-}
+}*/
 
 .product__details .product__price {
   font-size: 45px;
-  font-weight: 100;
+  font-weight: 900;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 
@@ -197,6 +341,38 @@ header {
 
 
 
+/*Product card small*/
+.product-card-list {
+  display: block;
+  position: relative;
+}
+
+
+.product-card-small .product__title {
+  font-size: 16px;
+  margin-top: 0;
+  top: 0;
+}
+
+.product-card-small .product__image-wrapper {
+  display: inline-block;
+}
+
+.product-card-small .product__image {
+  max-width: 100px;
+  display: block;
+  height: auto;
+}
+
+.product-card-small .product__quantity,
+.product-card-small .product__title,
+.product-card-small .product__remove,
+.product-card-small .product__price{
+  display: inline-block;
+  margin-top: 0;
+  margin-right: 60px;
+  vertical-align: text-bottom;
+}
 
 /*faq*/
 .faq {
@@ -226,6 +402,34 @@ header {
   font-size: 14px;
   font-weight: 400;
   color: #666666;
+}
+
+
+
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: white;
+  padding: 60px;
+  padding-top: 120px;
+  height: 100vh;
+  overflow: auto;
+  z-index: 99;
+  transform: translateX(100%);
+  transition: transform .3s ease-in;
+}
+
+.cart.cart-show {
+  transform: translateX(0);
+}
+
+
+
+/*util*/
+.inline-list {
+  list-style: none;
+  padding-left: 0;
 }
 
 

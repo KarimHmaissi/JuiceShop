@@ -22,8 +22,19 @@ export const loadProductsFetch = () => {
 	}
 
 	return dispatch => {
+
 		dispatch(loadProductsRequest());
-		return moltin.Product.List({offset: 0}, function (response) {
+
+		const products = JSON.parse(localStorage.getItem('products'));
+
+		if(products) {
+			dispatch(loadProductsRecieved(products));
+			return;
+		}
+
+		return moltin.Product.List({limit: 1000},function (response) {
+			localStorage.setItem('products', JSON.stringify(response));
+
 			console.log('GOT A RESPONSE FOR PRODUCTS: ', response);
 			dispatch(loadProductsRecieved(response))
 		}, errorHandler);

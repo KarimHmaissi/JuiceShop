@@ -29,9 +29,6 @@ export const loginUserFetch = (email, password) => {
 		dispatch(loginUserRequest());
 
 		const user = JSON.parse(localStorage.getItem('user'));
-		console.log('GOT USER SON');
-		console.log(user);
-
 
 		if(user) {
 			dispatch(loginUserRecieved(user));
@@ -42,8 +39,6 @@ export const loginUserFetch = (email, password) => {
 
 		return Axios.post('http://localhost:8080/api/login', { email, password })
 			.then(function (response) {
-				console.log('RESPONSE FOR LOGIN');
-				console.log(response);
 
 				if(response.data.user) {
 					localStorage.setItem('user', JSON.stringify(response.data.user.result));

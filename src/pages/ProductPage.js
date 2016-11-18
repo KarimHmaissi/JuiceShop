@@ -11,7 +11,6 @@ import ProtoPage from './index.js';
 class ProductPage extends ProtoPage {
 
 	render() {
-		console.log('PRODUCTPAGE: ', this.props);
 		return (
 			<div>
 				<ProductContainer routeParams={{productId: this.props.routeParams.productId}}/>

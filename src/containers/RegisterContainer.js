@@ -8,11 +8,9 @@ import RegisterForm from '../components/forms/RegisterForm';
 
 class RegisterContainer extends Component {
 	componentWillMount() {
-		console.log('Puase');
 	}
 
 	handleSubmit(values) {
-		console.log('onLoginSubmit: ', values);
 	}
 
 	render() {
