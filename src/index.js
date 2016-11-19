@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
+import './fonts.css';
 import {Provider} from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import { routerReducer, syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux';

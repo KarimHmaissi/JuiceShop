@@ -55,7 +55,8 @@ export default class ProductDetails extends Component {
 								<li className="product__cta__benefit">Free postage on orders over $20 </li>
 								<li className="product__cta__benefit">Top rated juice on juice shop.</li>
 							</ul>
-							<button className="button" onClick={this.addToCart.bind(this)}>Add to cart</button>
+							<button className="button" onClick={this.addToCart.bind(this)}><i className="fa fa-2x fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
+							<p className="help">Clicking the above button will add this juice to your cart. You will not be asked for any information until your ready to checkout. </p>
 
 						</div>
 					</div>

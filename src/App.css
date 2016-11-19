@@ -6,7 +6,7 @@
 .button {
   font-size: 12px;
   font-weight: 700;
-  background-color: #24dbc2;
+  background-color: #2d2b2d;
   color: #fff;
 
 
@@ -295,12 +295,21 @@ header {
    /*border: 3px solid #2d2b2d;*/
 }
 
+.product .product__cta .help {
+  font-size: 15px;
+}
+
 .product .product__cta .button {
   display: block;
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 40px;
+}
+
+.product .product__cta .button i {
+  font-size: 1.7em;
+  margin-right: 8px;
 }
 
 .product__cta__benefits {

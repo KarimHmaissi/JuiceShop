@@ -59,7 +59,7 @@ export const loadProductRecieved = (response) => {
 	}
 }
 
-export const loadProductFetch = (id) => {
+export const loadProductFetch = (inCache, id, product) => {
 
 	//Write an error dispatch - middleware?
 	if(!id) {
@@ -71,6 +71,11 @@ export const loadProductFetch = (id) => {
 	}
 
 	return dispatch => {
+		//grab it from existing store if possible
+		if(inCache && product) {
+			return dispatch(loadProductRecieved(product))
+		}
+
 		dispatch(loadProductRequest());
 		return moltin.Product.Get(id, function (response) {
 			console.log('GOT A RESPONSE FOR PRODUCTS: ', response);

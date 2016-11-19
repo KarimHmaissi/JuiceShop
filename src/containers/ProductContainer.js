@@ -8,9 +8,22 @@ import ProductDetails from '../components/product/ProductDetails';
 
 
 class ProductContainer extends Component {
+
 	componentWillMount() {
-		const productId = this.props.routeParams.productId
-		this.props.productActions.loadProductFetch(productId);
+		const productId = this.props.routeParams.productId;
+
+		//check if product is part of products
+		console.log('WTF');
+		const cachedProduct = this.props.products.filter((product) => {
+			return product.id === productId
+		});
+
+		if(cachedProduct.length > 0) {
+			this.props.productActions.loadProductFetch(true, productId, cachedProduct[0]);
+		} else {
+			this.props.productActions.loadProductFetch(false, productId);
+		}
+
 	}
 
 	componentWillUnmount() {	
@@ -34,7 +47,8 @@ class ProductContainer extends Component {
 
 function mapStateToProps(state, props) {
 	return {
-		product: state.product
+		product: state.product,
+		products: state.products
 	}
 }
 
