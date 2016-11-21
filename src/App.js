@@ -17,12 +17,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        	<div className="container">
+        	<div className="">
         	<Nav user={this.props.user} logout={this.props.actions.logout}/>
         	<Cart />
        			{this.props.children} 
        		</div>
-        <footer />
+        <Footer />
       </div>
     );
   }

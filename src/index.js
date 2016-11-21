@@ -5,7 +5,7 @@ import './index.css';
 import './fonts.css';
 import {Provider} from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
-import { routerReducer, syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux';
+import { syncHistoryWithStore, routerActions } from 'react-router-redux';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 
 import configureStore from './store/configure-store';
@@ -19,12 +19,13 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import AccountPage from './pages/AccountPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 
 //Init Moltin
 if(moltin) {
 
-	moltin.Authenticate(function(response) {
+	moltin.Authenticate(function(response) { // eslint-disable-line new-cap
 		console.log('Moltin loaded: ', moltin);
 		console.log('Moltin Auth Loaded: ', response);
 		
@@ -42,7 +43,7 @@ if(moltin) {
 		const history = syncHistoryWithStore(browserHistory, store);
 
 		// Redirects to /login by default
-		const UserIsAuthenticated = UserAuthWrapper({
+		const userIsAuthenticated = UserAuthWrapper({  // eslint-disable-line new-cap
 		  authSelector: state => state.user, // how to get the user state
 		  redirectAction: routerActions.replace, // the redux action to dispatch for redirect
 		  wrapperDisplayName: 'UserIsAuthenticated' // a nice name for this auth check
@@ -50,14 +51,15 @@ if(moltin) {
 
 		ReactDOM.render(
 		  <Provider store={store}>
-		  	<Router history={browserHistory}>
+		  	<Router history={history}>
 		  		<Route component={App}>
 		  			<Route path="/"  component={HomePage}/>
 		  			<Route path="/products"  component={ProductListPage}/>
 		  			<Route path="/product/:productId"  component={ProductPage}/>
 		  			<Route path="/login"  component={LoginPage}/>
 		  			<Route path="/register"  component={RegisterPage}/>
-		  			<Route path="/account"  component={UserIsAuthenticated(AccountPage)}/>
+		  			<Route path="/account"  component={userIsAuthenticated(AccountPage)}/>
+		  			<Route path="/checkout"  component={userIsAuthenticated(CheckoutPage)}/>
 		  			<Route path="/cart"  component={CartPage}/>
 		  		</Route>
 

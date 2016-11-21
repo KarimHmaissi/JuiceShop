@@ -1,6 +1,9 @@
-import React, {PropTypes, Component } from 'react';
+import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { routerActions } from 'react-router-redux';
+import { browserHistory } from 'react-router';
+
 import * as cartActions from '../actions/cart-actions';
 import * as uiActions from '../actions/ui-actions';
 import ProductImage from '../components/product/ProductImage';
@@ -13,7 +16,11 @@ class CartContainer extends Component {
 	}
 
 	checkout() {
-		console.log('Checking out son');
+		//close cart sidebar
+		this.props.actions.closeSidebar();
+
+		browserHistory.push('/checkout');
+		// this.props.dispatch(routerActions.push('/checkout'));
 	}
 
 	removeItem(productKey) {
@@ -52,21 +59,24 @@ class CartContainer extends Component {
 
 		return (
 			<div className={'cart ' + (this.props.ui.sidebarOpen ? 'cart-show' : 'cart-hidden')}>
+				<div className="cart__content">
+					<button className="product__remove" onClick={this.closeSidebar.bind(this)}>Close</button>
 
-				<button className="product__remove" onClick={this.closeSidebar.bind(this)}>Close</button>
+					<p>CART</p>
+					<ul className="inline-list product-card-list">
+					{mapStoreToProducts()}
+					</ul>
+					<div className="total price">
+						<h4>TOTAL: {getPrice()}</h4>
+					</div>
 
-				<p>CART</p>
-				<ul className="inline-list product-card-list">
-				{mapStoreToProducts()}
-				</ul>
-				<div className="total price">
-					<h4>TOTAL: {getPrice()}</h4>
+					<div className="button-wrapper">
+						<Link to="/cart" className="button">Go To Cart</Link>
+						<button className="button" onClick={this.checkout.bind(this)}>Checkout</button>
+					</div>
 				</div>
-
-				<div className="button-wrapper">
-					<Link to="/cart" className="button">Go To Cart</Link>
-					<button className="button" onClick={this.checkout.bind(this)}>Checkout</button>
-				</div>
+				<div className="cart__background" onClick={this.closeSidebar.bind(this)}></div>
+				
 			</div>
 		)
 	}
@@ -89,7 +99,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		actions: bindActionCreators(Object.assign({}, cartActions, uiActions), dispatch)
+		actions: bindActionCreators(Object.assign({}, cartActions, uiActions, routerActions), dispatch)
 	}
 }
 

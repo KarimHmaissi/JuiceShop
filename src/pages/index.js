@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import { Component } from 'react';
 
 class ProtoPage extends Component {
 

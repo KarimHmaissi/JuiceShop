@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React from 'react';
 import Intro from '../components/common/Intro';
 import ProductListContainer from '../containers/ProductListContainer';
 
@@ -10,7 +10,9 @@ class HomePage extends ProtoPage {
 		return (
 			<div>
 				<Intro />
-				<ProductListContainer />
+				<div className="container">
+					<ProductListContainer />
+				</div>
 			</div>
 		)
 	}

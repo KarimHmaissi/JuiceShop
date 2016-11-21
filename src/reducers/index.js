@@ -35,15 +35,14 @@ const product = (state = {}, action) => {
 	}
 }
 
-const user = (state = {}, action) => {
+const user = (state = initialState.user, action) => {
 	switch (action.type) {
 		case types.LOGIN_USER_REQUEST:
 			return state;
 		case types.LOGIN_USER_RECIEVED:
-			console.log('USER REDUCER recieved user');
-			return Object.assign({}, state, {user: action.payload});
+			return Object.assign({}, state, action.payload);
 		case types.LOGOUT:
-			return Object.assign({}, state, {user: null});
+			return initialState.user;
 		default:
 			return state;
 	}
@@ -63,7 +62,20 @@ const cart = (state = [], action) => {
 			return state;
 	}
 }
-console.log('initialState: ', initialState)
+
+
+const reviews = (state = initialState.reviews, action) => {
+	switch (action.type) {
+	  case types.LOAD_REVIEWS_REQUEST:
+	    return state;
+	  case types.LOAD_REVIEWS_RECIEVED:
+	  	return action.payload;
+	  default:
+	    return state;
+	}
+}
+
+
 
 const ui = (state = initialState.ui, action) => {
 	switch (action.type) {
@@ -88,6 +100,7 @@ const rootReducer = combineReducers({
 	user,
 	cart,
 	ui,
+	reviews,
 	form: formReducer,
 });
 

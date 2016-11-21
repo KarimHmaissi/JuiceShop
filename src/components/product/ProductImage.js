@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { Component} from 'react';
 
 export default class ProductImage extends Component {
 
@@ -8,7 +8,7 @@ export default class ProductImage extends Component {
 
 		if(images.length > 0) {
 			const imgSrc = images[0].url.http;
-			return img = (<img className="product__image" src={imgSrc} />)
+			return (<img alt="product" className="product__image" src={imgSrc} />)
 		}
 
 		return;

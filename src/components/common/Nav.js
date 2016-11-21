@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { Component} from 'react';
 import {Link} from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,8 +10,7 @@ class Nav extends Component {
 		var user = this.props.user;
 		var userElement ;
 
-		if(user.user) {
-			user = user.user;
+		if(user.email) {
 			userElement = (
 				<ul className="nav-list">
 					<li><Link to="/products">Products</Link></li>

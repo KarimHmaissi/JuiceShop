@@ -1,7 +1,6 @@
 import * as types from './action-types';
+import { routerActions } from 'react-router-redux';
 import Axios from 'axios';
-import moltin from '../Moltin/MoltinFactory';
-import { browserHistory } from 'react-router'
 
 export const loginUserRequest = () => {
 	return {
@@ -21,17 +20,17 @@ export const loginUserFetch = (email, password) => {
 
 	//Write an error dispatch - middleware?
 
-	const errorHandler = (error) => {
-		console.error(error);
-	}
-
 	return dispatch => {
+
 		dispatch(loginUserRequest());
 
 		const user = JSON.parse(localStorage.getItem('user'));
 
 		if(user) {
 			dispatch(loginUserRecieved(user));
+			//TODO Problem here
+			// dispatch(routerActions.push('/account'));
+
 			return;
 		}
 
@@ -42,9 +41,11 @@ export const loginUserFetch = (email, password) => {
 
 				if(response.data.user) {
 					localStorage.setItem('user', JSON.stringify(response.data.user.result));
+					dispatch(routerActions.push('/account'));
+
 
 					dispatch(loginUserRecieved(response.data.user.result));
-					browserHistory.push('/account');
+					// browserHistory.push('/account');
 				} else {
 					console.error('Problem logging in');
 				}

@@ -9,6 +9,7 @@ build
 # misc
 .DS_Store
 npm-debug.log
+keys
 
 # typings definitions (used with VS Code)
 typings

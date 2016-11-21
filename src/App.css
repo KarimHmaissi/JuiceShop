@@ -46,32 +46,6 @@
 
 
 
-/*intro*/
-.intro {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.intro .intro__title,
-.intro .intro__subtitle {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-}
-
-.intro .intro__title {
-  font-size: 120px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  letter-spacing: 1.1;
-  margin-top: 0;
-}
-
-.intro .intro__subtitle {
-  font-size: 41px;
-  font-weight: 100;
-  letter-spacing: 2px;
-  margin: 0;
-  letter-spacing: 1.1;
-}
 
 
 
@@ -88,8 +62,8 @@ header {
   left: 0;
   width: 100%;
   background: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   z-index: 9999;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.07);
 }
@@ -103,8 +77,8 @@ header {
 .logo h1 {
   margin: 0;
   font-weight: 100;
-  font-size: 36px;
-  margin-top: 10px;
+  font-size: 26px;
+  /*margin-top: 10px;*/
 }
 
 .logo h1 span {
@@ -115,7 +89,7 @@ header {
   text-align: right;
   list-style: none;
   padding-left: 0;
-  margin-left: 200px;
+  margin: 0;
 }
 
 .nav-list > li {
@@ -128,6 +102,64 @@ header {
   font-weight: 600;
   color: #343433;
 }
+
+
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?dpr=2&auto=compress,format&fit=crop&w=1199&h=1799&q=80&cs=tinysrgb&crop=');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh + 60px);
+  width: 100%;
+  position: relative;
+}
+
+/*intro*/
+.hero__content {
+  margin-bottom: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -70px;
+  color: #fff;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero__background {
+  position: absolute;
+  left: 0;
+  top: 0;
+ min-height: calc(100vh + 60px);
+  width: 100%;
+  background: rgba(45, 43, 45, 0.38);
+  z-index: 1
+}
+
+.hero__content .hero__title,
+.hero__content .hero__subtitle {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.hero__content .hero__title {
+  font-size: 120px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  letter-spacing: 1.1;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.hero__content .hero__subtitle {
+  font-size: 41px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 0;
+  letter-spacing: 1.1;
+}
+
 
 
 /*Adding component specific css here for the time being*/
@@ -415,10 +447,11 @@ header {
 
 
 
-.cart {
+.cart__content {
   position: fixed;
   right: 0;
   top: 0;
+  width: 62%;
   background-color: white;
   padding: 60px;
   padding-top: 120px;
@@ -429,9 +462,30 @@ header {
   transition: transform .3s ease-in;
 }
 
-.cart.cart-show {
+.cart-show .cart__content {
   transform: translateX(0);
 }
+
+.cart.cart-show .cart__background {
+  opacity: 1;
+  display: block;
+  z-index: 98;
+  background-color: rgba(45, 43, 45, 0.71);
+}
+
+.cart .cart__background {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  min-height: 100vh;
+  opacity: 0;
+  z-index: -100;
+  display: none;
+  transition: background-color .75s ease;
+} 
 
 
 
@@ -439,6 +493,11 @@ header {
 .inline-list {
   list-style: none;
   padding-left: 0;
+}
+
+.container-small {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 

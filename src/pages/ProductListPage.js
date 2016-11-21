@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React from 'react';
 
 import ProductListContainer from '../containers/ProductListContainer';
 import FAQ from '../components/common/FAQ';
@@ -11,7 +11,7 @@ class ProductListPage extends ProtoPage {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<ProductListContainer />
 				<FAQ />
 				<Returns />

@@ -13,5 +13,7 @@ export default {
 	},
 	products: [],
 	product: null,
+	reviews: [],
 	cart: [],
+	user: {}
 };

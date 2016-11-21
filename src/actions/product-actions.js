@@ -17,6 +17,7 @@ export const loadProductsRecieved = (response) => {
 }
 
 export const loadProductsFetch = () => {
+
 	const errorHandler = (error) => {
 		console.error(error);
 	}
@@ -32,7 +33,7 @@ export const loadProductsFetch = () => {
 			return;
 		}
 
-		return moltin.Product.List({limit: 1000},function (response) {
+		return moltin.Product.List({limit: 1000},function (response) { // eslint-disable-line new-cap
 			localStorage.setItem('products', JSON.stringify(response));
 
 			console.log('GOT A RESPONSE FOR PRODUCTS: ', response);
@@ -77,14 +78,10 @@ export const loadProductFetch = (inCache, id, product) => {
 		}
 
 		dispatch(loadProductRequest());
-		return moltin.Product.Get(id, function (response) {
+		return moltin.Product.Get(id, function (response) { // eslint-disable-line new-cap
 			console.log('GOT A RESPONSE FOR PRODUCTS: ', response);
 			dispatch(loadProductRecieved(response))
-		}, function (response) {
-			console.log('GOT A RESPONSE FOR PRODUCTS: ', response);
-			// dispatch(loadProductRecieved(response))
-			console.error('Moltin sent an error');
-		});
+		}, errorHandler);
 	}
 }
 

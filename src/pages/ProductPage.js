@@ -1,6 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React from 'react';
 
-import Intro from '../components/common/Intro';
 import ProductContainer from '../containers/ProductContainer';
 import FAQ from '../components/common/FAQ';
 import Returns from '../components/common/Returns';
@@ -12,11 +11,13 @@ class ProductPage extends ProtoPage {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<ProductContainer routeParams={{productId: this.props.routeParams.productId}}/>
-				<FAQ />
-				<Returns />
-				<Postage />
+				<div className="container-small">
+					<FAQ />
+					<Returns />
+					<Postage />
+				</div>
 			</div>
 		)
 	}

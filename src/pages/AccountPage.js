@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React from 'react';
 import AccountContainer from '../containers/AccountContainer';
 
 import ProtoPage from './index.js';
@@ -7,7 +7,7 @@ class AccountPage extends ProtoPage {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<AccountContainer />
 			</div>
 		)

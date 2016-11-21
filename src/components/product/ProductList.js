@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { Component} from 'react';
 import ProductCard from './ProductCard';
 
 export default class ProductList extends Component {

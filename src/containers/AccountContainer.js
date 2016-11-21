@@ -1,14 +1,9 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { browserHistory } from 'react-router';
 
 class AccountContainer extends Component {
 
 	componentWillMount() {
-		// if(!this.props.user.user) {
-		// 	browserHistory.push('/login');
-		// } 
 	}
 
 	render() {
