@@ -15,5 +15,6 @@ export default {
 	product: null,
 	reviews: [],
 	cart: [],
-	user: {}
+	user: {},
+	addresses: []
 };

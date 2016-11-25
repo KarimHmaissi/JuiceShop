@@ -78,7 +78,7 @@ header {
   margin: 0;
   font-weight: 100;
   font-size: 26px;
-  /*margin-top: 10px;*/
+  font-family: 'Open Sans', serif;
 }
 
 .logo h1 span {
@@ -306,12 +306,18 @@ header {
 }
 
 .product .product__selector li {
-  
   display: inline-block;
   padding: 14px;
   border: 3px solid #2d2b2d;
   font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.product .product__selector li:hover {
+  background-color: #2d2b2d;
+  color: #fff;
 }
 
 .product .product__selector li:first-child {
@@ -388,11 +394,14 @@ header {
   position: relative;
 }
 
+.product-card-small {
+  width: 100%;
+}
 
 .product-card-small .product__title {
   font-size: 16px;
-  margin-top: 0;
-  top: 0;
+  font-weight: 700;
+  max-width: 210px;
 }
 
 .product-card-small .product__image-wrapper {
@@ -405,14 +414,32 @@ header {
   height: auto;
 }
 
+.product-card-small .product__remove {
+  cursor: pointer;
+}
+
 .product-card-small .product__quantity,
 .product-card-small .product__title,
 .product-card-small .product__remove,
 .product-card-small .product__price{
-  display: inline-block;
-  margin-top: 0;
-  margin-right: 60px;
-  vertical-align: text-bottom;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.close-sidebar {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  padding: 20px;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+  background-color: #2d2b2d;
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 /*faq*/
@@ -447,14 +474,14 @@ header {
 
 
 
-.cart__content {
+.cart__fixed {
   position: fixed;
   right: 0;
   top: 0;
-  width: 62%;
+  width: 50%;
   background-color: white;
-  padding: 60px;
-  padding-top: 120px;
+  padding: 90px;
+  padding-top: 110px;
   height: 100vh;
   overflow: auto;
   z-index: 99;
@@ -462,7 +489,7 @@ header {
   transition: transform .3s ease-in;
 }
 
-.cart-show .cart__content {
+.cart-show .cart__fixed {
   transform: translateX(0);
 }
 
@@ -489,10 +516,45 @@ header {
 
 
 
+
+/*address*/
+.address {
+  display: block;
+  float: left;
+  width: 33%;
+  padding: 20px;
+  border: 1px solid #2d2b2d;
+  margin-right: 20px;
+}
+
+.address .address__field {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.address .address__name {
+  font-weight: 700;
+}
+
+.address .address__postcode {
+  text-transform: uppercase;
+}
+
+
+
+
+
+
 /*util*/
 .inline-list {
   list-style: none;
   padding-left: 0;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .container-small {
@@ -500,6 +562,21 @@ header {
   margin: 0 auto;
 }
 
+.container__margin-small {
+  margin-top: 80px;
+}
+
+
+.title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 120px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin: 0;
+  letter-spacing: 1.1;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
 
 /*GRID HERE*/

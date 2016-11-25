@@ -10,7 +10,7 @@ class HomePage extends ProtoPage {
 		return (
 			<div>
 				<Intro />
-				<div className="container">
+				<div className="container container__margin-small">
 					<ProductListContainer />
 				</div>
 			</div>

@@ -8,7 +8,11 @@ class CheckoutPage extends ProtoPage {
 	render() {
 		return (
 			<div className="container">
-				<CheckoutContainer />
+				<div className="row">
+					<div className="col-xs-12">
+						<CheckoutContainer />
+					</div>
+				</div>
 			</div>
 		)
 	}

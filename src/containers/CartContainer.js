@@ -7,6 +7,8 @@ import { browserHistory } from 'react-router';
 import * as cartActions from '../actions/cart-actions';
 import * as uiActions from '../actions/ui-actions';
 import ProductImage from '../components/product/ProductImage';
+import CartSidebarWrapper from '../components/cart/CartSidebarWrapper';
+import CartFullWrapper from '../components/cart/CartFullWrapper';
 import {Link} from 'react-router';
 
 class CartContainer extends Component {
@@ -20,7 +22,6 @@ class CartContainer extends Component {
 		this.props.actions.closeSidebar();
 
 		browserHistory.push('/checkout');
-		// this.props.dispatch(routerActions.push('/checkout'));
 	}
 
 	removeItem(productKey) {
@@ -28,57 +29,26 @@ class CartContainer extends Component {
 	}
 
 	closeSidebar() {
+		console.log('CLOSE SIDEBAR');
 		this.props.actions.closeSidebar();
 	}
 
 	render() {
-		console.log('CARTCONTAINER', this.props);
-
-		 const mapStoreToProducts = () => {
-		 	if(!this.props.cart.contents) return;
-			return Object.keys(this.props.cart.contents).map((key) => {
-				const product = this.props.cart.contents[key];
-				return (<li key={product.id}>
-					<div className="product-card-small">
-						<ProductImage productImage={product.images} />
-						<p className="product__title">{product.title}</p>
-						<p className="product__quantity">{product.quantity}</p>
-						<p className="product__price">{product.pricing.formatted.with_tax}</p>
-						<button className="product__remove" onClick={() => this.removeItem(key)}>Remove X</button>
-					</div>
-
-				</li>)
-			});
+		if(this.props.inSidebar) {
+			return (<CartSidebarWrapper cart={this.props.cart} 
+				  sidebarOpen={this.props.ui.sidebarOpen}
+				  checkout={this.checkout.bind(this)} 
+				  closeSidebar={this.closeSidebar.bind(this)}
+				  removeItem={this.removeItem.bind(this)} />)
+		} else {
+			return (<CartFullWrapper cart={this.props.cart} 
+				  sidebarOpen={this.props.ui.sidebarOpen}
+				  checkout={this.checkout.bind(this)} 
+				  closeSidebar={this.closeSidebar.bind(this)}
+				  removeItem={this.removeItem.bind(this)} />)
 		}
 
-		const getPrice = () => {
-			if (!this.props.cart.totals) return;
-
-			return this.props.cart.totals.pre_discount.formatted.with_tax;
-		}
-
-		return (
-			<div className={'cart ' + (this.props.ui.sidebarOpen ? 'cart-show' : 'cart-hidden')}>
-				<div className="cart__content">
-					<button className="product__remove" onClick={this.closeSidebar.bind(this)}>Close</button>
-
-					<p>CART</p>
-					<ul className="inline-list product-card-list">
-					{mapStoreToProducts()}
-					</ul>
-					<div className="total price">
-						<h4>TOTAL: {getPrice()}</h4>
-					</div>
-
-					<div className="button-wrapper">
-						<Link to="/cart" className="button">Go To Cart</Link>
-						<button className="button" onClick={this.checkout.bind(this)}>Checkout</button>
-					</div>
-				</div>
-				<div className="cart__background" onClick={this.closeSidebar.bind(this)}></div>
-				
-			</div>
-		)
+		
 	}
 }
 
@@ -88,11 +58,6 @@ function mapStateToProps(state, props) {
 		user: state.user,
 		cart: state.cart,
 		ui: state.ui,
-		// products: state.products.filter((product) => {
-		// 	if(state.cart.includes(product.id)) {
-		// 		return product;
-		// 	}
-		// })
 	}
 
 }
@@ -104,3 +69,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);
+

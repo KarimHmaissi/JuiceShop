@@ -64,6 +64,19 @@ const cart = (state = [], action) => {
 }
 
 
+const addresses = (state = initialState.addresses, action) => {
+	switch (action.type) {
+	  case types.LOAD_ADDRESSES_REQUEST:
+	    return state;
+	  case types.LOAD_ADDRESSES_RECIEVED:
+	  console.log('LOAD_ADDRESSES__RECIEVED: ', action.payload);
+	  	return action.payload;
+	  default:
+	    return state;
+	}
+}
+
+
 const reviews = (state = initialState.reviews, action) => {
 	switch (action.type) {
 	  case types.LOAD_REVIEWS_REQUEST:
@@ -101,6 +114,7 @@ const rootReducer = combineReducers({
 	cart,
 	ui,
 	reviews,
+	addresses,
 	form: formReducer,
 });
 
