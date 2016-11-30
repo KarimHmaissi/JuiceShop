@@ -25,7 +25,15 @@ h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-h2 {font-size: 2.827em;}
+h2 {
+	/*font-size: 2.827em;*/
+	font-weight: 700;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: 86px;
+	margin-top: 60px;
+	margin-bottom: 0;
+	letter-spacing: 1px;
+}
 
 h3 {font-size: 1.999em;}
 

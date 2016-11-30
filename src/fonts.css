@@ -81,4 +81,8 @@
   content: "\f07a";
 }
 
+.fa-star:before {
+  content: "\f005";
+}
+
 

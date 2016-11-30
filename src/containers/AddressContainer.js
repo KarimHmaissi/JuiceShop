@@ -51,6 +51,17 @@ class AddressContainer extends Component {
 		this.setState({showForm: true});
 	}
 
+	selectAddress(addressId) {
+		const addressResults = this.props.addresses.filter((address) => {
+			return addressId === address.id; 
+		});
+
+		if(addressResults.length > 0) {
+			this.props.actions.selectAddress(addressResults[0]);
+			console.log('Haha karim is awesome: ', addressResults[0]);
+		}
+	}
+
 	buttonOrForm() {
 		if(this.state.showForm) {
 			return (<AddressForm onSubmit={this.handleSubmit.bind(this)}/>);
@@ -63,7 +74,7 @@ class AddressContainer extends Component {
 		console.log('renderAddresses: ', this.props);
 
 		return this.props.addresses.map((address) => {
-			return (<Address key={address.id} address={address} />)
+			return (<Address key={address.id} address={address} selectAddress={this.selectAddress.bind(this)}/>)
 		});
 	}
 

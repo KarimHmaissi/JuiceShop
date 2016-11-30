@@ -13,7 +13,7 @@ class ProductContainer extends Component {
 	componentWillMount() {
 		const productId = this.props.routeParams.productId;
 
-		// this.props.reviewActions.loadReviewsFetch(productId);
+		this.props.reviewActions.loadReviewsFetch(productId);
 
 		//check if product is part of products
 		const cachedProduct = this.props.products.filter((product) => {

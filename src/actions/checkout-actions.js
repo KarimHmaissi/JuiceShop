@@ -43,23 +43,51 @@ export const loadCheckoutRecieved = (response) => {
 // });
 
 export const loadCheckoutFetch = (customer, billTo, shipTo='bill_to', gateway='dummy') => {
-	const errorHandler = (error) => {
-		console.error(Error);
-	}
 
 	return dispatch => {
 
 		dispatch(loadCheckoutRequest());
 
-		return moltin.Checkout.Complete({
-			customer,
-			gateway,
-			bill_to: billTo,
-			ship_to: shipTo
-		}, (response) => {
+		return moltin.Cart.Complete({
+			customer: {
+				first_name: customer.first_name,
+				last_name: customer.last_name,
+				email: customer.email,
+			},
+			gateway: 'stripe',
+			bill_to: {
+			    first_name: billTo.first_name,
+			    last_name: billTo.last_name,
+			    address_1:  billTo.address_1,
+			    // city:       billTo.city,
+			    county:     billTo.county,
+			    country:    'US',
+			    postcode:   billTo.postcode,
+			},
+			ship_to: 'bill_to',
+			shipping: 'Royal Mail First Class'
+		},
+		(response) => {
 			console.log('loadCheckoutFetch: ', response);
 
-		}, errorHandler)
+		}, (error) => {
+			console.log('Something is wrong');
+			console.error(error);
+		})
+
+
+		// return moltin.Cart.Complete({
+		// 	customer,
+		// 	gateway,
+		// 	bill_to: billTo,
+		// 	ship_to: shipTo
+		// }, (response) => {
+		// 	console.log('loadCheckoutFetch: ', response);
+
+		// }, (error) => {
+		// 	console.log('Something is wrong');
+		// 	console.error(error);
+		// })
 
 	}
 }

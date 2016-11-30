@@ -14,7 +14,7 @@ class Nav extends Component {
 			userElement = (
 				<ul className="nav-list">
 					<li><Link to="/products">Products</Link></li>
-					<li><Link to="/account"><span>{user.first_name} </span>Your Account</Link></li>
+					<li><Link to="/account">Your Account</Link></li>
 					<li><a onClick={this.props.logout}>Logout</a></li>
 					<li><button className="button" onClick={this.props.actions.openSidebar}>Cart</button></li>
 				</ul>

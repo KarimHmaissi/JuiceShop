@@ -25,8 +25,10 @@ class CheckoutContainer extends Component {
 
 		// const billTo = ;
 		const customer = this.props.user;
-
-		// this.props.actions.loadCheckoutFetch(customer, billTo);
+		const address = this.props.selectedAddress;
+		console.log('customer, ', customer);
+		console.log('address, ', address);
+		this.props.actions.loadCheckoutFetch(customer, address);
 	}
 
 	render() {
@@ -47,7 +49,8 @@ function mapStateToProps(store, props) {
 	return {
 		checkout: store.checkout,
 		user: store.user,
-		addresses: store.addresses
+		addresses: store.addresses,
+		selectedAddress: store.selectedAddress
 	}
 }
 

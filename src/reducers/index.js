@@ -76,6 +76,15 @@ const addresses = (state = initialState.addresses, action) => {
 	}
 }
 
+const selectedAddress = (state = initialState.selectedAddress, action) => {
+	switch (action.type) {
+	  case types.SELECT_ADDRESS:
+	    return action.payload;
+	  default:
+	    return state;
+	}
+}
+
 
 const reviews = (state = initialState.reviews, action) => {
 	switch (action.type) {
@@ -115,6 +124,7 @@ const rootReducer = combineReducers({
 	ui,
 	reviews,
 	addresses,
+	selectedAddress,
 	form: formReducer,
 });
 

@@ -6,7 +6,7 @@ class AddressForm extends Component {
 	render() {
 
 		return (
-			<div className="login form-wrapper">
+			<div className="address form-wrapper">
 				<p>Please enter your shipping details so we know where to send your awesome juice fam.</p>
 
 				<form onSubmit={this.props.handleSubmit}>

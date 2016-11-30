@@ -96,6 +96,11 @@ export const addAddressFetch = (customerId, email, password, firstName, surname,
 }
 
 
-
+export const selectAddress = (address) => {
+	return {
+		type: types.SELECT_ADDRESS,
+		payload: address
+	}
+}
 
 

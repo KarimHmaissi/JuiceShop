@@ -16,5 +16,6 @@ export default {
 	reviews: [],
 	cart: [],
 	user: {},
-	addresses: []
+	addresses: [],
+	selectedAddress: false
 };

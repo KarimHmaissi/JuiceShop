@@ -28,9 +28,17 @@ export const loadReviewsFetch = () => {
 
 		dispatch(loadReviewsRequest());
 
+		const reviews = JSON.parse(localStorage.getItem('reviews'));
+
+		if(reviews) {
+			dispatch(loadReviewsRecieved(reviews));
+			return;
+		}
+
 		const response = (response) => {
-			console.log('STOP HERE');
-			dispatch(loadReviewsRecieved(response.data._embedded['jdb:reviews']));
+			const reviews = response.data._embedded['jdb:reviews'];
+			localStorage.setItem('reviews', JSON.stringify(reviews));
+			dispatch(loadReviewsRecieved(reviews));
 		}
 
 		const error = (error) => {

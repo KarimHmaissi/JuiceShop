@@ -14,6 +14,7 @@ export default class Address extends Component {
 				<p className="address__field address__county">{address.county}</p>
 				<p className="address__field address__postcode">{address.postcode}</p>
 				<p className="address__field address__country">{address.country.data.name}</p>
+				<button className="button" onClick={() => {this.props.selectAddress(address.id)}}>Select address</button>
 			</div>
 		)
 	}

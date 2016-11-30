@@ -10,25 +10,6 @@ export default class ProductDetails extends Component {
 		this.props.addToCart(this.props.product.id);
 	}
 
-	loadReviews() {
-		console.log("FFFS: ",this.props.reviews);
-
-		if(this.props.reviews.length < 1) return;
-		return this.props.reviews.map((review) => {
-			return (
-				<div key={review.id} className="review col-xs-6">
-					<div className="review__user">
-					<img alt="avatar" src={review._embedded['jdb:user'].avatar} />
-					<p>{review._embedded['jdb:user'].username}</p>
-
-					</div>
-					<p className="review__stars">Stars: {review.stars}</p>
-					<p className="review__body">{review.body}</p>
-				</div>
-			)
-		});
-	}
-
 	render() {
 		console.log('ProductDetails:', this.props);
 
@@ -87,11 +68,6 @@ export default class ProductDetails extends Component {
 						<ProductImage  productImage={this.props.product.images} />
 					</div>
 					
-				</div>
-				<div className="container-small">
-					<div className="row">
-						{this.loadReviews()}
-					</div>
 				</div>
 			</div>
 		)
